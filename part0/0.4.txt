@@ -1,0 +1,30 @@
+title 0.4 New Note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+the server responds with HTTP code 302
+and asks the browser to ask for the location
+https://studies.cs.helsinki.fi/exampleapp/notes
+end note
+
+server-->browser: redirect to /new_note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code (notes)
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: CSS-code (main.css)
+browser->server: https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: JS-code (main.js)
+
+note over browser:
+the browser execute the JS code.
+The JS code make an aditional request
+end note over 
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: JSON data (data.json)
+
+note over browser:
+when the data is received succesfully, the browser
+executes an event handler that uses the DOM-API
+to render the data in the website
