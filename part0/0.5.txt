@@ -1,0 +1,22 @@
+title 0.5 Single Page App
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code (spa)
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: CSS-code (main.css)
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: JS-code (spa.js)
+
+note over browser:
+the browser runs the script
+and request the JSON file
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data (data.json)
+
+note over browser:
+when the data is received, the event
+handler is triggered and the browser
+runs the function that modifies the 
+DOM to display the notes
