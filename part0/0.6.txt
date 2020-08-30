@@ -1,0 +1,23 @@
+title 0.6 New note
+
+note over browser:
+when a new note is submitted, the browser runs and event handler that:
+end note
+
+note over browser:
+prevents the default form submission behavior
+end note
+
+note over browser:
+creates a new note object
+end note
+
+note over browser:
+add the object to the array of existing notes
+end note
+
+note over browser:
+runs a function to display all the notes in the array on the website
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
