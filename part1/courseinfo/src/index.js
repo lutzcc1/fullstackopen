@@ -19,7 +19,6 @@ const App = () => {
       }
     ]
   } 
-  
 
   return (
     <div>
@@ -47,8 +46,8 @@ const Total = (props) => {
   return <p>Number of exercises {total}</p>
 }
 
-const Part = (props) => (
-  <p>{props.part} {props.exercises}</p>
+const Part = ({part, exercises}) => (
+  <p>{part} {exercises}</p>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'))
