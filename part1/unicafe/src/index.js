@@ -24,13 +24,22 @@ const Button = ({handleClick, text}) => (
   </button>
 )
 
-const Display = ({good, bad, neutral}) => (
-  <div>
-    <p>Good: {good}</p>
-    <p>Bad: {bad}</p>
-    <p>Neutral: {neutral}</p>
-  </div>
-)
+const Display = ({good, bad, neutral}) => {
+  let total = good + bad + neutral;
+  let average = (good - bad) / total;
+  let positive = (good / total) * 100;
+
+    return (
+      <div>
+        <p>Good: {good}</p>
+        <p>Bad: {bad}</p>
+        <p>Neutral: {neutral}</p>
+        <p>All: {total}</p>
+        <p>Average: {average ? average : 0}</p>
+        <p>Positive: {positive ? positive : 0}%</p>
+      </div>
+    )
+}
 
 ReactDOM.render(
   <React.StrictMode>
