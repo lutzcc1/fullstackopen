@@ -1,8 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+const App = () => {
+  const [good, setGood] = useState(0);
+  const [bad, setBad] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+
+  return (
+    <div>
+      <h1>Give feedback</h1>
+      <Button handleClick={() => setGood(good + 1)} text="good" />
+      <Button handleClick={() => setBad(bad + 1)} text="bad" />
+      <Button handleClick={() => setNeutral(neutral + 1)} text="neutral" />
+      <h2>statistics</h2>
+      <Display good={good} bad={bad} neutral={neutral} />
+    </div>
+  )
+}
+
+const Button = ({handleClick, text}) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
+
+const Display = ({good, bad, neutral}) => (
+  <div>
+    <p>Good: {good}</p>
+    <p>Bad: {bad}</p>
+    <p>Neutral: {neutral}</p>
+  </div>
+)
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +38,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
