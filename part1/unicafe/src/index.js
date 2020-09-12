@@ -33,19 +33,26 @@ const Statistics = ({good, bad, neutral}) => {
     return <h5> No feedback given</h5>
   }
 
-    return (
-      <div>
-        <Statistic text="Good" value={good} />
-        <Statistic text="Bad" value={bad} />
-        <Statistic text="Neutral" value={neutral} />
-        <Statistic text="All" value={total} />
-        <Statistic text="Average" value={average} />
-        <Statistic text="Positive" value={positive} />
-      </div>
-    )
+  return (
+    <table>
+      <tr><Statistic text="Good" value={good} /></tr>
+      <tr><Statistic text="Bad" value={bad} /></tr>
+      <tr><Statistic text="Neutral" value={neutral} /></tr>
+      <tr><Statistic text="All" value={total} /></tr>
+      <tr><Statistic text="Average" value={average} /></tr>
+      <tr><Statistic text="Positive" value={positive} /></tr>
+    </table>
+  )
 }
 
-const Statistic = ({text, value}) => <p>{text}: {value}</p>
+const Statistic = ({text, value}) => {
+  return (
+    <>
+      <td>{text}: </td>
+      <td>{value}</td>
+    </>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
